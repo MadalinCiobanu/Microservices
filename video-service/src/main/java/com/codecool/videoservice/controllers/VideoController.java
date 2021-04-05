@@ -29,7 +29,7 @@ public class VideoController {
     @RequestMapping("/video/{videoId}")
     public VideoInfo getVideoById (@PathVariable("videoId") long videoId) {
 
-        VideoRecommendationCollection videoRecs = restTemplate.getForObject("http://localhost:8082/video/" + videoId, VideoRecommendationCollection.class);
+        VideoRecommendationCollection videoRecs = restTemplate.getForObject("http://video-recommendation-service/video/" + videoId, VideoRecommendationCollection.class);
 
         VideoItem videoItem = videoRepository.findById(videoId).orElseThrow(IllegalArgumentException::new);
 
